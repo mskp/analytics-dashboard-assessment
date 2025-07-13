@@ -1,4 +1,3 @@
-from .config import Config
 import sys
 
 from dotenv import load_dotenv
@@ -13,6 +12,8 @@ from .models import db
 from .routes import auth_bp, dashboard_bp, health_check_bp
 
 load_dotenv()
+
+from .config import Config
 
 
 def create_app():
