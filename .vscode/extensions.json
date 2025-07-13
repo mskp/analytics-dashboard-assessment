@@ -5,6 +5,8 @@
         "ms-python.python",
         "tamasfe.even-better-toml",
         "zeshuaro.vscode-python-poetry",
-        "ms-python.black-formatter"
+        "ms-python.black-formatter",
+        "dsznajder.es7-react-js-snippets",
+        "esbenp.prettier-vscode"
     ]
 }

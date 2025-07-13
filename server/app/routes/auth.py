@@ -13,7 +13,7 @@ from werkzeug.security import check_password_hash, generate_password_hash
 
 from app.models import User, db
 
-from ..utils.auth_utils import generate_jwt
+from ..utils.auth_utils import generate_jwt, token_required
 from ..utils.response import standard_response
 from ..utils.validation import (
     GoogleLoginData,
@@ -166,3 +166,14 @@ def google_login():
         return standard_response(
             False, None, "An error occurred during Google login", 500
         )
+
+
+@auth_bp.route("/verify-token", methods=["GET"])
+@token_required
+def verify_token():
+    return standard_response(
+        True,
+        None,
+        "Token has been verified!",
+        200,
+    )

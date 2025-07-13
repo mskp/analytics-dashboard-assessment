@@ -1,4 +1,5 @@
 import sys
+import os
 
 from dotenv import load_dotenv
 from flask import Flask
@@ -30,7 +31,18 @@ def create_app():
         print(f"[FATAL] Database connection failed: {e}", file=sys.stderr)
         sys.exit(1)
 
-    CORS(app)
+    allowed_origins = os.getenv(
+        "ALLOWED_ORIGINS", "http://localhost:3000,http://127.0.0.1:3000"
+    ).split(",")
+    # Filter out empty strings
+    allowed_origins = [origin.strip() for origin in allowed_origins if origin.strip()]
+    CORS(
+        app,
+        origins=allowed_origins,
+        methods=['GET', 'POST', 'OPTIONS'],
+        supports_credentials=True,
+        allow_headers=['Content-Type', 'Authorization'],
+    )
 
     register_error_handlers(app)
 
