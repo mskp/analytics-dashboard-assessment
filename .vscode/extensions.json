@@ -1,0 +1,10 @@
+{
+    "recommendations": [
+        "ms-python.autopep8",
+        "ms-python.isort",
+        "ms-python.python",
+        "tamasfe.even-better-toml",
+        "zeshuaro.vscode-python-poetry",
+        "ms-python.black-formatter"
+    ]
+}
