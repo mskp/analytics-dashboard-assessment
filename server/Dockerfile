@@ -20,11 +20,12 @@ WORKDIR /app
 # Copy dependency files
 COPY pyproject.toml poetry.lock ./
 
+# Copy application code
+COPY . .
+
 # Install dependencies using pip (works better with mixed pyproject.toml format)
 RUN pip install --no-cache-dir -e .
 
-# Copy application code
-COPY . .
 
 # Create non-root user for security
 RUN adduser --disabled-password --gecos '' appuser && \
