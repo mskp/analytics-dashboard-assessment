@@ -17,8 +17,8 @@ RUN apt-get update && apt-get install -y \
 # Set work directory
 WORKDIR /app
 
-# Copy dependency files
-COPY pyproject.toml poetry.lock ./
+# Copy application code
+COPY . .
 
 # Install dependencies using pip (works better with mixed pyproject.toml format)
 RUN pip install --no-cache-dir -e .
@@ -26,8 +26,6 @@ RUN pip install --no-cache-dir -e .
 # Install Gunicorn for production
 RUN pip install gunicorn
 
-# Copy application code
-COPY . .
 
 # Create non-root user for security
 RUN adduser --disabled-password --gecos '' appuser && \
