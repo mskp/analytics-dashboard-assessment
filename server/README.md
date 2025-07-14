@@ -7,6 +7,20 @@ A robust Flask-based REST API for the analytics dashboard, featuring authenticat
 - **Backend API**: [https://api.analytics-dash.sushant.fun](https://api.analytics-dash.sushant.fun)
 - **Frontend**: [https://analytics-dash.sushant.fun](https://analytics-dash.sushant.fun)
 
+## 📚 API Documentation
+
+- **Interactive API Docs (Swagger UI)**: [https://api.analytics-dash.sushant.fun/api/docs](https://api.analytics-dash.sushant.fun/api/docs)
+- **API Home**: [https://api.analytics-dash.sushant.fun/api](https://api.analytics-dash.sushant.fun/api)
+
+The API documentation provides:
+
+- Interactive endpoint testing
+- Request/response schemas
+- Authentication instructions
+- Real-time API exploration
+
+For local development, visit: `http://localhost:5000/api/docs`
+
 ## 🏗️ Deployment
 
 The backend is deployed on a **Google Cloud VPS** using Docker containers for scalability and reliability.

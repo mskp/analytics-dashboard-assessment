@@ -10,22 +10,24 @@ api = Api(
     api_docs_bp,
     title='Analytics Dashboard API',
     version='1.0',
-    description='API documentation for the Analytics Dashboard backend',
+    description='API documentation for the Analytics Dashboard backend. Use the "Authorize" button above to add your Bearer token for protected endpoints.',
     doc='/docs',
     authorizations={
-        'apikey': {
+        'Bearer': {
             'type': 'apiKey',
             'in': 'header',
             'name': 'Authorization',
-            'description': 'Bearer token for authentication',
+            'description': 'Enter your Bearer token in the format: Bearer <your_token>',
         }
     },
-    security='apikey',
+    security='Bearer',
 )
 
 # Define namespaces for different API sections
 auth_ns = api.namespace('auth', description='Authentication operations')
-dashboard_ns = api.namespace('dashboard', description='Dashboard data operations')
+dashboard_ns = api.namespace(
+    'dashboard', description='Dashboard data operations (requires authentication)'
+)
 health_ns = api.namespace('health-check', description='Health check operations')
 
 # Standard response model
@@ -174,7 +176,7 @@ class GoogleLogin(Resource):
 
 @auth_ns.route('/verify-token')
 class VerifyToken(Resource):
-    @auth_ns.doc('verify_token')
+    @auth_ns.doc('verify_token', security='Bearer')
     @auth_ns.response(200, 'Success', standard_response_model)
     @auth_ns.response(401, 'Unauthorized', standard_response_model)
     def get(self):
@@ -187,7 +189,7 @@ class VerifyToken(Resource):
 # Dashboard endpoints documentation
 @dashboard_ns.route('/summary')
 class DashboardSummary(Resource):
-    @dashboard_ns.doc('get_dashboard_summary')
+    @dashboard_ns.doc('get_dashboard_summary', security='Bearer')
     @dashboard_ns.response(200, 'Success', standard_response_model)
     @dashboard_ns.response(401, 'Unauthorized', standard_response_model)
     @dashboard_ns.response(404, 'Not Found', standard_response_model)
@@ -201,7 +203,7 @@ class DashboardSummary(Resource):
 
 @dashboard_ns.route('/total-users')
 class TotalUsers(Resource):
-    @dashboard_ns.doc('get_total_users_chart_data')
+    @dashboard_ns.doc('get_total_users_chart_data', security='Bearer')
     @dashboard_ns.response(200, 'Success', standard_response_model)
     @dashboard_ns.response(401, 'Unauthorized', standard_response_model)
     def get(self):
@@ -214,7 +216,7 @@ class TotalUsers(Resource):
 
 @dashboard_ns.route('/traffic-by-device')
 class TrafficByDevice(Resource):
-    @dashboard_ns.doc('get_traffic_by_device_chart_data')
+    @dashboard_ns.doc('get_traffic_by_device_chart_data', security='Bearer')
     @dashboard_ns.response(200, 'Success', standard_response_model)
     @dashboard_ns.response(401, 'Unauthorized', standard_response_model)
     def get(self):
@@ -227,7 +229,7 @@ class TrafficByDevice(Resource):
 
 @dashboard_ns.route('/traffic-by-location')
 class TrafficByLocation(Resource):
-    @dashboard_ns.doc('get_traffic_by_location_chart_data')
+    @dashboard_ns.doc('get_traffic_by_location_chart_data', security='Bearer')
     @dashboard_ns.response(200, 'Success', standard_response_model)
     @dashboard_ns.response(401, 'Unauthorized', standard_response_model)
     def get(self):
@@ -269,5 +271,10 @@ def api_home():
             'success': 'boolean - Indicates if the request was successful',
             'data': 'object/array - The response data',
             'message': 'string - A message for the client',
+        },
+        'authentication': {
+            'type': 'Bearer Token',
+            'header': 'Authorization: Bearer <your_token>',
+            'note': 'Use the Authorize button in the Swagger UI to add your token',
         },
     }
