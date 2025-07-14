@@ -109,7 +109,14 @@ A modern, responsive analytics dashboard built with Next.js 15, TypeScript, and 
 4. **Open your browser**
    Navigate to [http://localhost:3000](http://localhost:3000)
 
+### Live Demo
+
+- **Frontend**: [https://analytics-dash.sushant.fun](https://analytics-dash.sushant.fun)
+- **Backend API**: [https://api.analytics-dash.sushant.fun](https://api.analytics-dash.sushant.fun)
+
 ### Vercel Deployment
+
+The frontend is deployed on **Vercel** for optimal performance and automatic deployments.
 
 1. **Connect to Vercel**
 
@@ -119,7 +126,7 @@ A modern, responsive analytics dashboard built with Next.js 15, TypeScript, and 
 
 2. **Configure Environment Variables in Vercel**
 
-   - `NEXT_PUBLIC_API_URL`: Your VPS backend URL (e.g., https://your-vps-domain.com:8000)
+   - `NEXT_PUBLIC_API_URL`: https://api.analytics-dash.sushant.fun
    - `NEXT_PUBLIC_GOOGLE_CLIENT_ID`: Your Google OAuth client ID
 
 3. **Deploy**
@@ -234,7 +241,14 @@ NODE_ENV=development
 
 ## 🚀 Deployment
 
+### Live Demo
+
+- **Frontend**: [https://analytics-dash.sushant.fun](https://analytics-dash.sushant.fun)
+- **Backend API**: [https://api.analytics-dash.sushant.fun](https://api.analytics-dash.sushant.fun)
+
 ### Vercel Deployment (Recommended)
+
+The frontend is deployed on **Vercel** for optimal performance and automatic deployments.
 
 1. **Connect to Vercel**
 
@@ -244,7 +258,7 @@ NODE_ENV=development
 
 2. **Configure Environment Variables**
 
-   - `NEXT_PUBLIC_API_URL`: Your VPS backend URL (e.g., https://your-vps-domain.com:8000)
+   - `NEXT_PUBLIC_API_URL`: https://api.analytics-dash.sushant.fun
    - `NEXT_PUBLIC_GOOGLE_CLIENT_ID`: Your Google OAuth client ID
 
 3. **Deploy**

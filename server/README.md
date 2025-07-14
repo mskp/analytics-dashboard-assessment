@@ -2,6 +2,15 @@
 
 A robust Flask-based REST API for the analytics dashboard, featuring authentication, data management, and comprehensive analytics endpoints. Built with modern Python practices and containerized for easy deployment.
 
+## 🚀 Live Demo
+
+- **Backend API**: [https://api.analytics-dash.sushant.fun](https://api.analytics-dash.sushant.fun)
+- **Frontend**: [https://analytics-dash.sushant.fun](https://analytics-dash.sushant.fun)
+
+## 🏗️ Deployment
+
+The backend is deployed on a **Google Cloud VPS** using Docker containers for scalability and reliability.
+
 ## Quick Start
 
 ### Development
@@ -17,7 +26,7 @@ poetry run python run.py
 docker-compose up --build
 ```
 
-### Production (VPS)
+### Production (Google Cloud VPS)
 
 ```bash
 docker-compose -f docker-compose.prod.yml up -d

@@ -190,7 +190,14 @@ analytics-dashboard-assessment/
 
 ## 🚀 Deployment
 
+### Live Demo
+
+- **Frontend**: [https://analytics-dash.sushant.fun](https://analytics-dash.sushant.fun)
+- **Backend API**: [https://api.analytics-dash.sushant.fun](https://api.analytics-dash.sushant.fun)
+
 ### Frontend Deployment (Vercel)
+
+The frontend is deployed on **Vercel** for optimal performance and automatic deployments.
 
 1. **Connect to Vercel**
 
@@ -200,16 +207,18 @@ analytics-dashboard-assessment/
 
 2. **Configure Environment Variables**
 
-   - `NEXT_PUBLIC_API_URL`: Your VPS backend URL
+   - `NEXT_PUBLIC_API_URL`: https://api.analytics-dash.sushant.fun
    - `NEXT_PUBLIC_GOOGLE_CLIENT_ID`: Your Google OAuth client ID
 
 3. **Deploy**
    - Vercel will automatically deploy on every push to main branch
    - Or use Vercel CLI: `vercel --prod`
 
-### Backend Deployment (VPS)
+### Backend Deployment (Google Cloud VPS)
 
-1. **Setup VPS**
+The backend is deployed on a **Google Cloud VPS** using Docker containers.
+
+1. **Setup Google Cloud VPS**
 
    ```bash
    # Install Docker and Docker Compose
@@ -239,22 +248,6 @@ analytics-dashboard-assessment/
    - Setup SSL certificate (Let's Encrypt)
    - Configure firewall to allow port 8000
 
-## 🧪 Testing
-
-### Frontend
-
-```bash
-cd client
-bun run test
-```
-
-### Backend
-
-```bash
-cd server
-poetry run pytest
-```
-
 ## 📝 Contributing
 
 1. Fork the repository
@@ -270,9 +263,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 🔗 Links
 
 - **Repository**: https://github.com/mskp/analytics-dashboard-assessment
-- **Frontend**: Deployed on Vercel
-- **Backend API**: http://localhost:5000 (development) / VPS (production)
-- **API Documentation**: Available at `/api/docs` (when running)
 
 ## 🤝 Support
 
