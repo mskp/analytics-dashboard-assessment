@@ -10,7 +10,7 @@ from sqlalchemy.exc import OperationalError
 from app.middleware.error_handlers import register_error_handlers
 
 from .models import db
-from .routes import auth_bp, dashboard_bp, health_check_bp
+from .routes import auth_bp, dashboard_bp, health_check_bp, api_docs_bp
 
 load_dotenv()
 
@@ -49,5 +49,6 @@ def create_app():
     app.register_blueprint(auth_bp)
     app.register_blueprint(dashboard_bp)
     app.register_blueprint(health_check_bp)
+    app.register_blueprint(api_docs_bp)
 
     return app
